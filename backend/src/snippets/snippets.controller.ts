@@ -1,40 +1,63 @@
-import { Body, Controller, Delete, Get, Patch, Post } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  Param,
+  Patch,
+  Post,
+  Query,
+} from '@nestjs/common';
 import { SnippetsService } from './snippets.service';
 import { CreateSnippetDto } from 'src/dto/createSnippet.dto';
 import { UpdateSnippetDto } from 'src/dto/updateSnippet.dto';
+import {
+  ApiResponseCreateSnippet,
+  ApiResponseDeleteSnippet,
+  ApiResponseGetAllSnippets,
+  ApiResponseGetSnippetById,
+  ApiResponseUpdateSnippet,
+} from 'src/types/response.type';
 
 @Controller('snippets')
 export class SnippetsController {
   constructor(private readonly snippetService: SnippetsService) {}
 
   @Get()
-  getAllSnippets(): string {
-    return this.snippetService.getAllSnippets();
+  async getAllSnippets(
+    @Query('page') page: number,
+    @Query('tags') tags?: string[],
+    @Query('q') q?: string,
+  ): Promise<ApiResponseGetAllSnippets> {
+    return await this.snippetService.getAllSnippets({ page, tags, q });
   }
 
   @Post()
-  createSnippet(@Body() body: CreateSnippetDto): {
-    message: string;
-    body: CreateSnippetDto;
-  } {
-    return this.snippetService.createSnippet(body);
+  async createSnippet(
+    @Body() body: CreateSnippetDto,
+  ): Promise<ApiResponseCreateSnippet> {
+    return await this.snippetService.createSnippet(body);
   }
 
   @Get(':id')
-  getSnippetById(): string {
-    return this.snippetService.getSnippetById();
+  async getSnippetById(
+    @Param('id') id: string,
+  ): Promise<ApiResponseGetSnippetById> {
+    return await this.snippetService.getSnippetById(id);
   }
 
   @Patch(':id')
-  updateSnippet(@Body() body: CreateSnippetDto): {
-    message: string;
-    body: UpdateSnippetDto;
-  } {
-    return this.snippetService.updateSnippet(body);
+  async updateSnippet(
+    @Body() body: UpdateSnippetDto,
+    @Param('id') id: string,
+  ): Promise<ApiResponseUpdateSnippet> {
+    return await this.snippetService.updateSnippet(body, id);
   }
 
   @Delete(':id')
-  deleteSnippet(): string {
-    return this.snippetService.deleteSnippet();
+  async deleteSnippet(
+    @Param('id') id: string,
+  ): Promise<ApiResponseDeleteSnippet> {
+    return await this.snippetService.deleteSnippet(id);
   }
 }

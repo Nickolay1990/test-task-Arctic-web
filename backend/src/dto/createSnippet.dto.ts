@@ -5,7 +5,7 @@ import {
   IsNotEmpty,
   IsString,
 } from 'class-validator';
-import { snippetType } from 'src/types/snippetType.enum';
+import { SnippetType } from 'src/types/snippetType.enum';
 
 export class CreateSnippetDto {
   @IsString({ message: 'Title must be a string' })
@@ -21,6 +21,6 @@ export class CreateSnippetDto {
   @ArrayMaxSize(10, { message: 'Maximum 10 tags allowed' })
   tags: string[];
 
-  @IsEnum(snippetType, { message: 'Type must be link, note or command' })
-  type: snippetType;
+  @IsEnum(SnippetType, { message: 'Type must be link, note or command' })
+  type: SnippetType;
 }
