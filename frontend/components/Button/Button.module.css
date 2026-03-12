@@ -1,0 +1,17 @@
+.danger{
+  background-color: red;
+  color: white;
+}
+
+.normal{
+  background-color: grey;
+  color: black;
+}
+
+.btn{
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 24px;
+}

@@ -2,3 +2,57 @@
   display: flex;
   gap: 12px;
 }
+
+.loaderText {
+    font-size: 16px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.errorWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 80px;
+    padding: 40px;
+}
+
+.errorTitle {
+    font-weight: 600;
+    font-size: 48px;
+    line-height: 67%;
+    color: red;
+}
+
+.errorText {
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 67%;
+}
+
+.buttonWrapper {
+    display: flex;
+    gap: 30px;
+}
+
+.btn {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 67%;
+    color: red;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.loaderWrapper{
+  width: 100%;
+}
+
+.loaderText {
+    font-size: 16px;
+    margin-bottom: 10px;
+    text-align: center;
+}

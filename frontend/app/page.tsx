@@ -6,13 +6,15 @@ import Filters from "@/components/Filters/Filter"
 interface HomeProps {
   searchParams: {
     tags?: string
+    q?: string
   }
 }
 
 const Home = async ({ searchParams }: HomeProps) => {
   const params = await searchParams
   const selectedTags = params.tags?.split(",") || []
-  const resSnippets = await getAllSnippets(selectedTags)
+  const searchQuery = params.q || ''
+  const resSnippets = await getAllSnippets(selectedTags, searchQuery)
   const resTags = await getAllTags()
   
   return <div className={css.wrapper}>

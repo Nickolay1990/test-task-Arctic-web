@@ -13,3 +13,9 @@ export interface ApiResponseGetAllTags {
   message: string;
   data: string[];
 }
+
+export interface ApiResponseGetSnippetById {
+  status: number;
+  message: string;
+  data: Snippet;
+}

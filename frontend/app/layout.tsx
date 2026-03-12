@@ -30,11 +30,6 @@ export default function RootLayout({
       >
         <Header/>
         {children}
-         <footer>
-          <p>
-            by Bohdanovich Mykola (@bogdanovichkolia199@gmail.com)
-          </p>
-        </footer>
       </body>
     </html>
   );

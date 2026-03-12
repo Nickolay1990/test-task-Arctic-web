@@ -16,3 +16,21 @@
   gap: 10px;
   flex-wrap: wrap;
 }
+
+.input{
+  outline: none;
+  border: 1px solid orange;
+  padding: 4px;
+  border-radius: 10px;
+  width: 100%;
+}
+
+.inputWrapper{
+  position: relative;
+}
+
+.searchBtn{
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}

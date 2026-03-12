@@ -5,3 +5,7 @@
   border-radius: 10px;
   cursor: pointer;
 }
+
+.selected {
+  background-color: orange;
+}
