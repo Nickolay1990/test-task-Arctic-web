@@ -19,3 +19,8 @@ export interface ApiResponseGetSnippetById {
   message: string;
   data: Snippet;
 }
+
+export interface ApiResponseDeleteSnippetById {
+  status: number;
+  message: string;
+}

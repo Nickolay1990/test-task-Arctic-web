@@ -27,3 +27,17 @@
 .wrapper{
   padding: 15px;
 }
+
+
+.normal{
+  background-color: grey;
+  color: black;
+}
+
+.btn{
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 24px;
+}

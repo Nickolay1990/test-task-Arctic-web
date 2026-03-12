@@ -2,6 +2,8 @@ import { getSnippetById } from "@/lib/api";
 import css from './page.module.css'
 import TagsList from "@/components/TagsList/TagsList";
 import Button from "@/components/Button/Button";
+import Link from "next/link";
+import DeleteButton from "@/components/DeleteButton/DeleteButton";
 
 type SnippetDetailsProps = {
   params: Promise<{ id: string }>;
@@ -22,8 +24,8 @@ const SnippetDetails = async ({ params }: SnippetDetailsProps) => {
       <TagsList id={data._id} tags={data.tags} />
     }
     <div className={css.buttonsWrapper}>
-      <Button text="Edit" type="danger"/>
-      <Button text="Delete" type="normal"/>
+      <Link href={`/snippets/${data._id}/edit`} className={`${css.normal} ${css.btn}`}>Edit</Link>
+      <DeleteButton snippetId={data._id} />
     </div>
   </div>
 };

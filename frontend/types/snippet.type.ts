@@ -11,6 +11,6 @@ export interface Snippet {
   content: string;
   tags: string[];
   type: SnippetType;
-  createdAt: string;
-  updatedAt: string;
+  createdAt?: string;
+  updatedAt?: string;
 };

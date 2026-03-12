@@ -1,4 +1,5 @@
-import { ApiResponseGetAllSnippets, ApiResponseGetAllTags, ApiResponseGetSnippetById } from "@/types/responses.type";
+import { SnippetCreateRequest } from "@/types/requestes";
+import { ApiResponseDeleteSnippetById, ApiResponseGetAllSnippets, ApiResponseGetAllTags, ApiResponseGetSnippetById } from "@/types/responses.type";
 import axios from "axios";
 
 axios.defaults.baseURL = "https://test-task-arctic-web.onrender.com/";
@@ -32,8 +33,20 @@ export const getSnippetById = async (id: string) => {
   return res.data;
 };
 
-export const createSnippet = async (body) => {
+export const createSnippet = async (body: SnippetCreateRequest) => {
   const res = await axios.post<ApiResponseGetSnippetById>(`/snippets`, body);
+  
+  return res.data;
+};
+
+export const updateSnippet = async (id: string, body: SnippetCreateRequest) => {
+  const res = await axios.patch<ApiResponseGetSnippetById>(`/snippets/${id}`, body);
+  
+  return res.data;
+};
+
+export const deleteSnippet = async (id: string) => {
+  const res = await axios.delete<ApiResponseDeleteSnippetById>(`/snippets/${id}`);
   
   return res.data;
 };

@@ -10,8 +10,8 @@ const TagsList = ({ tags, id }: TagsListProps) => {
   return <div>
     <p className={css.title}>Tags:</p>
   <ul className={css.tagList}>
-    {tags.map(tag => {
-      return <TagsListItem tag={tag} key={`${tag} ${id}`}/>
+    {tags.map((tag, index) => {
+      return <TagsListItem tag={tag} key={`${index} ${tag} ${id}`}/>
     })}
   </ul>
     </div>
