@@ -12,6 +12,7 @@ import {
   ApiResponseCreateSnippet,
   ApiResponseDeleteSnippet,
   ApiResponseGetAllSnippets,
+  ApiResponseGetAllTags,
   ApiResponseGetSnippetById,
   ApiResponseUpdateSnippet,
 } from 'src/types/response.type';
@@ -130,6 +131,15 @@ export class SnippetsService {
     return {
       status: 200,
       message: 'Snippet deleted successfully',
+    };
+  }
+
+  async getAllTags(): Promise<ApiResponseGetAllTags> {
+    const tags = await this.snippetModel.distinct('tags');
+    return {
+      status: 200,
+      message: 'Find snippets successfully',
+      data: tags,
     };
   }
 }

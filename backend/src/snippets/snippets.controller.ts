@@ -15,6 +15,7 @@ import {
   ApiResponseCreateSnippet,
   ApiResponseDeleteSnippet,
   ApiResponseGetAllSnippets,
+  ApiResponseGetAllTags,
   ApiResponseGetSnippetById,
   ApiResponseUpdateSnippet,
 } from 'src/types/response.type';
@@ -30,6 +31,11 @@ export class SnippetsController {
     @Query('q') q?: string,
   ): Promise<ApiResponseGetAllSnippets> {
     return await this.snippetService.getAllSnippets({ page, tags, q });
+  }
+
+  @Get('tags')
+  async getAllTags(): Promise<ApiResponseGetAllTags> {
+    return await this.snippetService.getAllTags();
   }
 
   @Post()

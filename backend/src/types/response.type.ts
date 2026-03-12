@@ -30,3 +30,9 @@ export interface ApiResponseDeleteSnippet {
   status: number;
   message: string;
 }
+
+export interface ApiResponseGetAllTags {
+  status: number;
+  message: string;
+  data: string[];
+}
