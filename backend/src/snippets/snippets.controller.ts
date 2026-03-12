@@ -27,7 +27,7 @@ export class SnippetsController {
   @Get()
   async getAllSnippets(
     @Query('page') page: number,
-    @Query('tags') tags?: string[],
+    @Query('tags') tags?: string,
     @Query('q') q?: string,
   ): Promise<ApiResponseGetAllSnippets> {
     return await this.snippetService.getAllSnippets({ page, tags, q });

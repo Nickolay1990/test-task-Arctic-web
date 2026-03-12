@@ -34,13 +34,14 @@ export class SnippetsService {
     const limit = 10;
     const filters: SnippetFilters = {};
     const pageNumber = page && page > 0 ? page : 1;
+    const tagsArray = tags?.split(',') || [];
 
     if (q) {
       filters.$text = { $search: q };
     }
 
-    if (tags && tags.length > 0) {
-      filters.tags = { $in: tags };
+    if (tagsArray.length > 0) {
+      filters.tags = { $all: tagsArray };
     }
 
     const snippets = await this.snippetModel

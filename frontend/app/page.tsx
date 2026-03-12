@@ -1,12 +1,23 @@
 import SnippetList from "@/components/SnippetList/SnippetList"
-import { getAllSnippets } from "@/lib/api"
+import { getAllSnippets, getAllTags } from "@/lib/api"
 import css from './page.module.css'
+import Filters from "@/components/Filters/Filter"
 
-const Home = async () => {
-  const { data } = await getAllSnippets()
+interface HomeProps {
+  searchParams: {
+    tags?: string
+  }
+}
+
+const Home = async ({ searchParams }: HomeProps) => {
+  const params = await searchParams
+  const selectedTags = params.tags?.split(",") || []
+  const resSnippets = await getAllSnippets(selectedTags)
+  const resTags = await getAllTags()
   
   return <div className={css.wrapper}>
-      <SnippetList snippets={data}/>
+      <SnippetList snippets={resSnippets.data} />
+      <Filters tags={resTags.data} selectedTags={selectedTags}/>
     </div>
 }
 

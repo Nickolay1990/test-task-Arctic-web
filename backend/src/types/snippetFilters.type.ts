@@ -1,4 +1,4 @@
 export type SnippetFilters = {
   $text?: { $search: string };
-  tags?: { $in: string[] };
+  tags?: { $all: string[] };
 };

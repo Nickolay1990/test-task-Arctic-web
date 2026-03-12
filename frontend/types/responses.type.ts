@@ -7,3 +7,9 @@ export interface ApiResponseGetAllSnippets {
   total: number;
   page: number;
 }
+
+export interface ApiResponseGetAllTags {
+  status: number;
+  message: string;
+  data: string[];
+}

@@ -1,5 +1,5 @@
 export interface QueryParams {
   page: number;
-  tags?: string[];
+  tags?: string;
   q?: string;
 }
