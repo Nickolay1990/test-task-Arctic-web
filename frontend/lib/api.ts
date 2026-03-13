@@ -4,18 +4,22 @@ import axios from "axios";
 
 axios.defaults.baseURL = "https://test-task-arctic-web.onrender.com/";
 
-export const getAllSnippets = async (tags: string[], search: string) => {
+export const getAllSnippets = async (tags: string[], search: string, page: number) => {
   const validTags = tags.filter(tag => tag.trim() !== "");
-  const params: Record<string, string> = {};
+  const params: Record<string, string | number> = {};
 
   if (validTags.length > 0) {
     params.tags = validTags.join(",");
   }
 
-   if (search.trim()) {
+  if (search.trim()) {
     params.q = search.trim()
   }
 
+  if (page) {
+    params.page = page
+  }
+  
   const res = await axios.get<ApiResponseGetAllSnippets>("/snippets", { params });
 
   return res.data;

@@ -1,6 +1,4 @@
-"use client";
-
-import css from "./page.module.css";
+'use client';
 
 type Props = {
     error: Error;
@@ -9,14 +7,13 @@ type Props = {
 
 const Error = ({ error, reset }: Props) => {
     return (
-        <div className={css.errorWrapper}>
-            <h2 className={css.errorTitle}>Error loading data</h2>
-            <p className={css.errorText}>{error.message}</p>
-            <div className={css.buttonWrapper}>
-                <button className={css.btn} onClick={reset}>
-                    Try again
-                </button>
-            </div>
+        <div className='flex flex-col items-center justify-center gap-10 flex-1'>
+            <h2 className='font-semibold text-5xl text-red-600'>Error loading data</h2>
+            <p className='text-2xl'>{error.message}</p>
+            <button className='text-xl text-white bg-red-600 p-2.5 rounded-xl'
+             onClick={reset}>
+                Try again
+            </button>
         </div>
     );
 };

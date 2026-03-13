@@ -1,5 +1,3 @@
-import css from './TagItem.module.css'
-
 interface TagItemProps {
   tag: string
   onClick: (tag: string) => void
@@ -8,7 +6,7 @@ interface TagItemProps {
 
 const TagItem = ({ tag, onClick, selected }: TagItemProps) => {  
   return <li onClick={() => onClick(tag)}>
-    <button className={`${css.tagButton} ${selected ? css.selected : ''}`}>
+    <button className={`border border-orange-400 p-1 rounded-[10px] ${selected ? 'bg-orange-400' : ''}`}>
       {tag}
     </button>
   </li>

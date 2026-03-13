@@ -1,11 +1,10 @@
-import css from './Header.module.css';
 import Link from 'next/link';
 
 const Header = () => {
   return (
-    <header className={css.header}>
+    <header className='p-3 border-b border-gray-400'>
       <nav>
-        <ul className={css.navigation}>
+        <ul className='flex items-center justify-center gap-10 font-semibold text-orange-500'>
           <li>
             <Link href='/'>Home</Link>
           </li>
